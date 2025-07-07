@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from "../Button";
 
-const FinalCta = () => {
+const Final = () => {
   return (
     <section className="bg-gray-50 text-center py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
           準備好開始您的旅程了嗎？
         </h2>
         <p className="text-xl text-gray-600 mb-8">
@@ -21,4 +21,4 @@ const FinalCta = () => {
   );
 };
 
-export default FinalCta;
+export default Final;

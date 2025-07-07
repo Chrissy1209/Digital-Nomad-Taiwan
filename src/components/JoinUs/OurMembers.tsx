@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Testimonials = () => {
+const OurMembers = () => {
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-          我們的團隊成員怎麼說 (WHAT OUR TEAM SAYS)
+          團隊成員怎麼說
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -45,4 +45,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default OurMembers;
