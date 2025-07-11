@@ -150,7 +150,7 @@ const RoadmapItem: React.FC<{
           {yearData.quarters.map((quarter, qIndex) => (
             <li key={qIndex}>
               <button
-                className="w-full text-left focus:outline-none"
+                className="w-full text-left focus:outline-none cursor-pointer"
                 onClick={() => onQuarterToggle(quarter.title)}
               >
                 <h5 className="text-xl font-semibold mb-2 flex justify-between items-center">
