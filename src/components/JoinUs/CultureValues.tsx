@@ -6,32 +6,32 @@ import { FaTimes } from "react-icons/fa";
 const values = [
   {
     icon: "🌟",
-    title: "以人為本 (PEOPLE-FIRST)",
+    title: "以人為本",
     description: "我們將社群成員的需求和福祉放在首位，致力於創造一個支持性、包容且賦予力量的環境。",
   },
   {
     icon: "🧠",
-    title: "成長心態 (GROWTH MINDSET)",
+    title: "成長思維",
     description: "我們鼓勵持續學習、適應和創新。我們相信挑戰是成長的機會，並支持彼此探索新技能和想法。",
   },
   {
     icon: "💬",
-    title: "開放溝通 (OPEN COMMUNICATION)",
+    title: "開放溝通",
     description: "我們提倡透明、誠實和尊重的交流。我們相信開放的對話能建立信任，促進理解，並解決問題。",
   },
   {
     icon: "🤝",
-    title: "有意義的連結 (MEANINGFUL CONNECTIONS)",
+    title: "深度連結",
     description: "我們致力於建立深厚、真誠的關係，超越表面的互動。我們相信這些連結是社群力量的基石。",
   },
   {
     icon: "⚖️",
-    title: "價值交換 (VALUE EXCHANGE)",
+    title: "價值交換",
     description: "我們鼓勵互惠互利，讓每個人都能貢獻自己的獨特價值，並從社群中獲得支持和資源。",
   },
   {
     icon: "🌱",
-    title: "可持續成長 (SUSTAINABLE GROWTH)",
+    title: "持續發展",
     description: "我們專注於長期的發展和影響力，確保我們的行動不僅能滿足當前需求，也能為未來世代創造持久的價值。",
   },
 ];
@@ -68,18 +68,18 @@ const CultureValues = () => {
         </h2>
         <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
           這些核心原則塑造了我們的社群文化，並指導我們做出的每一個決定。
-          <br />
+          {/* <br /> */}
           點擊每個價值觀，了解更多我們如何將其付諸實踐。
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center cursor-pointer">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 text-center cursor-pointer">
           {values.map((value) => (
             <div
               key={value.title}
-              className="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+              className="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
               onClick={() => openModal(value)}
             >
-              <p className="text-2xl font-semibold text-gray-800">
-                {value.icon} {value.title.split(' (')[0]}
+              <p className="text-lg sm:text-2xl font-semibold text-gray-800">
+                {value.icon} {value.title}
               </p>
             </div>
           ))}
