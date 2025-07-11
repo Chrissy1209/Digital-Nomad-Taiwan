@@ -16,7 +16,7 @@ const Footer = () => {
       id="contact"
       className="bg-gray-900 text-white py-12 px-5 animate-fade-in-up"
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-6xl sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 sm:gap-56">
           <div>
             <Image
@@ -94,8 +94,8 @@ const Footer = () => {
               <li>
                 <Link
                   href="https://hahaharrywang.github.io/DNT_Website-V1.2/faq-section.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  // target="_blank"
+                  // rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
                 >
                   問答
@@ -103,9 +103,9 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="https://hahaharrywang.github.io/DNT_Website-V1.2/join-us.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/join-us"
+                  // target="_blank"
+                  // rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
                 >
                   加入我們
