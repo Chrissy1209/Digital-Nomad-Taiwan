@@ -4,44 +4,44 @@ import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Button from "../Button";
 
+const highlights = [
+  {
+    name: "每月聚會",
+    images: [
+      "https://via.placeholder.com/600x400?text=每月聚會+1",
+      "https://via.placeholder.com/600x400?text=每月聚會+2",
+      "https://via.placeholder.com/600x400?text=每月聚會+3",
+    ],
+  },
+  {
+    name: "一日同事",
+    images: [
+      "https://via.placeholder.com/600x400?text=一日同事+1",
+      "https://via.placeholder.com/600x400?text=一日同事+2",
+      "https://via.placeholder.com/600x400?text=一日同事+3",
+    ],
+  },
+  {
+    name: "專業講座",
+    images: [
+      "https://via.placeholder.com/600x400?text=專業講座+1",
+      "https://via.placeholder.com/600x400?text=專業講座+2",
+      "https://via.placeholder.com/600x400?text=專業講座+3",
+    ],
+  },
+  {
+    name: "冒險活動",
+    images: [
+      "https://via.placeholder.com/600x400?text=冒險活動+1",
+      "https://via.placeholder.com/600x400?text=冒險活動+2",
+      "https://via.placeholder.com/600x400?text=冒險活動+3",
+    ],
+  },
+];
+
 const EventHighlights = () => {
   const [activeTab, setActiveTab] = useState("每月聚會");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const highlights = [
-    {
-      name: "每月聚會",
-      images: [
-        "https://via.placeholder.com/600x400?text=每月聚會+1",
-        "https://via.placeholder.com/600x400?text=每月聚會+2",
-        "https://via.placeholder.com/600x400?text=每月聚會+3",
-      ],
-    },
-    {
-      name: "一日同事",
-      images: [
-        "https://via.placeholder.com/600x400?text=一日同事+1",
-        "https://via.placeholder.com/600x400?text=一日同事+2",
-        "https://via.placeholder.com/600x400?text=一日同事+3",
-      ],
-    },
-    {
-      name: "專業講座",
-      images: [
-        "https://via.placeholder.com/600x400?text=專業講座+1",
-        "https://via.placeholder.com/600x400?text=專業講座+2",
-        "https://via.placeholder.com/600x400?text=專業講座+3",
-      ],
-    },
-    {
-      name: "冒險活動",
-      images: [
-        "https://via.placeholder.com/600x400?text=冒險活動+1",
-        "https://via.placeholder.com/600x400?text=冒險活動+2",
-        "https://via.placeholder.com/600x400?text=冒險活動+3",
-      ],
-    },
-  ];
 
   const currentImages =
     highlights.find((h) => h.name === activeTab)?.images || [];
@@ -97,13 +97,13 @@ const EventHighlights = () => {
             <div className="flex justify-center space-x-4 mt-4">
               <button
                 onClick={goToPrevImage}
-                className="bg-[#FF7373] text-white p-3 rounded-full focus:outline-none hover:bg-[#E06666] transition-colors duration-200"
+                className="bg-[#FF7373] text-white p-3 rounded-full focus:outline-none hover:bg-[#E06666] transition-colors duration-200 cursor-pointer"
               >
                 <FaChevronLeft size={20} />
               </button>
               <button
                 onClick={goToNextImage}
-                className="bg-[#FF7373] text-white p-3 rounded-full focus:outline-none hover:bg-[#E06666] transition-colors duration-200"
+                className="bg-[#FF7373] text-white p-3 rounded-full focus:outline-none hover:bg-[#E06666] transition-colors duration-200 cursor-pointer"
               >
                 <FaChevronRight size={20} />
               </button>

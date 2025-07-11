@@ -117,7 +117,9 @@ const RoadmapItem: React.FC<{
   yearData: YearData;
   isExpanded: boolean;
   onToggle: (year: string) => void;
-}> = ({ yearData, isExpanded, onToggle }) => {
+  expandedQuarter: string | null;
+  onQuarterToggle: (quarter: string) => void;
+}> = ({ yearData, isExpanded, onToggle, expandedQuarter, onQuarterToggle }) => {
   return (
     <div className="relative flex flex-col items-center w-full">
       <button
@@ -127,8 +129,11 @@ const RoadmapItem: React.FC<{
         <div className="w-20 h-20 rounded-full flex items-center justify-center bg-[#FF7373] text-white text-2xl font-bold">
           {yearData.year}
         </div>
-        {isExpanded && <FaChevronUp size={24} className="mt-2" />}
-        {!isExpanded && <FaChevronDown size={24} className="mt-2" />}
+        {isExpanded ? (
+          <FaChevronUp size={24} className="mt-2" />
+        ) : (
+          <FaChevronDown size={24} className="mt-2" />
+        )}
       </button>
 
       <div
@@ -136,7 +141,7 @@ const RoadmapItem: React.FC<{
           overflow-hidden transition-all duration-500 ease-in-out
           ${
             isExpanded
-              ? "max-h-1000 opacity-100 mt-6 bg-white p-6 sm:p-8 rounded-lg shadow-md w-full"
+              ? "max-h-[2000px] opacity-100 mt-6 bg-white p-6 sm:p-8 rounded-lg shadow-md w-full"
               : "max-h-0 opacity-0 w-full"
           }
         `}
@@ -144,12 +149,32 @@ const RoadmapItem: React.FC<{
         <ul className="space-y-6">
           {yearData.quarters.map((quarter, qIndex) => (
             <li key={qIndex}>
-              <h5 className="text-xl font-semibold mb-2">{quarter.title}</h5>
-              <ul className="list-disc list-inside text-gray-600 space-y-1">
-                {quarter.items.map((item, itemIndex) => (
-                  <li key={itemIndex}>{item}</li>
-                ))}
-              </ul>
+              <button
+                className="w-full text-left focus:outline-none"
+                onClick={() => onQuarterToggle(quarter.title)}
+              >
+                <h5 className="text-xl font-semibold mb-2 flex justify-between items-center">
+                  {quarter.title}
+                  {expandedQuarter === quarter.title ? (
+                    <FaChevronUp />
+                  ) : (
+                    <FaChevronDown />
+                  )}
+                </h5>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  expandedQuarter === quarter.title
+                    ? "max-h-screen"
+                    : "max-h-0"
+                }`}
+              >
+                <ul className="list-disc list-inside text-gray-900 space-y-1 mt-2">
+                  {quarter.items.map((item, itemIndex) => (
+                    <li key={itemIndex}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </li>
           ))}
         </ul>
@@ -160,9 +185,15 @@ const RoadmapItem: React.FC<{
 
 const Roadmap = () => {
   const [expandedYear, setExpandedYear] = useState<string | null>("2025");
+  const [expandedQuarter, setExpandedQuarter] = useState<string | null>(null);
 
   const handleToggle = (year: string) => {
     setExpandedYear(expandedYear === year ? null : year);
+    setExpandedQuarter(null); // Reset quarter when year is toggled
+  };
+
+  const handleQuarterToggle = (quarter: string) => {
+    setExpandedQuarter(expandedQuarter === quarter ? null : quarter);
   };
 
   return (
@@ -180,6 +211,10 @@ const Roadmap = () => {
               yearData={yearData}
               isExpanded={expandedYear === yearData.year}
               onToggle={handleToggle}
+              expandedQuarter={
+                expandedYear === yearData.year ? expandedQuarter : null
+              }
+              onQuarterToggle={handleQuarterToggle}
             />
           ))}
         </div>
