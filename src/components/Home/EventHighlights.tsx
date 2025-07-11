@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Button from "../Button";
 
@@ -57,7 +57,7 @@ const EventHighlights = () => {
   };
 
   // Reset image index when active tab changes
-  useState(() => {
+  useEffect(() => {
     setCurrentImageIndex(0);
   }, [activeTab]);
 
